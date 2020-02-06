@@ -18,18 +18,24 @@ Vue.use(VueRouter)
 const routes = [
 	{
 		path: '/',
+		name:'Nav',
 		component:Nav,
-		children:[{
+		children:[
+			{
 			path:'/',
-			redirect:'home'
-		},
+			redirect:'/home/recommoned',
+			name:'home',
+			component: Home
+			},
 			{
 				path:'home',
 				component:() => import('../views/Home.vue'),
 				children:[
 					{
 						path:'/',
-						redirect:'recommoned'
+						// redirect:'recommoned'
+						name:'recommoned',
+
 					},
 					{
 						path:'recommoned',
@@ -68,12 +74,17 @@ const routes = [
 				component: ()=>import('../views/QuestionWaiting.vue')
 			},
 
+
 		]
 	},
 	// 更多的专题页
 	{
 		path:'/more-columns',
 		component:() => import('../views/MoreColumns.vue')
+	},
+	{
+		path:'/column/:id',
+		component:() =>import('../views/ColumnDetail.vue')
 	},
 	{
 		path:'/login',

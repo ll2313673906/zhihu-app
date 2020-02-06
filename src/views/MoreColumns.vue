@@ -31,7 +31,7 @@
          <div class="body">
 
              <div class="content">
-             <div class="card" v-for="(moreColumn,index) in moreColumns.slice(0,8)" :key="index">
+             <div class="card" v-for="(moreColumn,index) in moreColumns" :key="index">
                  <div class="card-header">
                      <div class="avatar">
                          <img :src="moreColumn.imageUrl" alt="头像">
@@ -55,7 +55,7 @@
              </div>
              </div>
              <div class="content-bottom">
-                 <button class="content-button-btn"  @click='getMore()'><i class="fa fa-refresh"></i>换一换</button>
+                 <button class="content-button-btn"  @click='getBatch()'><i class="fa fa-refresh"></i>换一换</button>
                  <div class="content-bottom-title">
                   在知乎创作
                  </div>
@@ -77,20 +77,33 @@
         data(){
             return{
                 moreColumns:[],
-
+                column:[],
+                count:0
 
             }
         },
         created() {
-            this.axios.get('http://localhost:8080/api/columns/all').then( res =>{
-                console.log(res)
-                this.moreColumns = res.data.data
-            })
+            this.getColumns()
 
         },
         methods: {
-            getMore(){
-               this.moreColumns.slice(8,7)
+            getColumns() {
+                this.axios({
+                    method:'get',
+                    url:'http://localhost:8080/api/columns/all'
+                }).then(res => {
+                    this.column = res.data.data;
+                    this.moreColumns = this.column.slice(this.count,this.count + 8);
+                    console.log(this.moreColumns);
+                })
+            },
+            // 点击按钮换一换触发方法
+            getBatch(){
+                this.count += 8;
+                this.moreColumns = this.column.slice(this.count,this.count + 8);
+                if (this.count + 7 >= this.column.length) {
+                    this.count = 0
+                }
             }
         }
     }

@@ -1,21 +1,29 @@
 <template>
 	 <div class="nav gutter">
-		<div class="nav-bar">
+		<div class="nav-bar"  v-if="fixed">
 			<ul class="nav-list flex-left">
-				<li class="nav-item"> <router-link to="/home" class="zhihu" >知乎 </router-link></li>
-				<li class="nav-item"><router-link to="/home"exact>首页</router-link></li>
-				<li class="nav-item"><router-link to="/explore"exact>发现</router-link></li>
-				<li class="nav-item"><router-link  to="/question/waiting"exact>等你来答</router-link></li>
+				<li class="nav-item"> <router-link to="/login" class="zhihu" >知乎 </router-link></li>
+				<li class="nav-item"><router-link to="/home/recommoned">首页</router-link></li>
+				<li class="nav-item"><router-link to="/explore">发现</router-link></li>
+				<li class="nav-item"><router-link  to="/question/waiting">等你来答</router-link></li>
 				<li class="nav-item"><input type="search" placeholder="search"></li>
 				<input type="button" value="提问">
-
-
-			<div class="icon">
-				<i class="fa fa-bell fa-2x"></i>
-				<i class="fa fa-comments fa-2x"></i>
-			</div>
+			     <div class="icon">
+			     	<i class="fa fa-bell fa-2x"></i>
+			     	<i class="fa fa-comments fa-2x"></i>
+			     </div>
 				<li class="nav-item nav-item-last"><router-link to="/login"><img :src="user.avatar" v-if="token"
 																				 style="width: 30px;height: 30px; border-radius: 5%;margin: -5px -20px"></router-link></li>
+			</ul>
+		</div>
+		<div class="hide-nav-bar" v-if="!fixed">
+			<ul class="nav-list flex-left">
+				<li class="nav-item"> <router-link to="/login" class="zhihu" >知乎 </router-link></li>
+				<li class="nav-item"><router-link to="/home/recommoned">推荐</router-link></li>
+				<li class="nav-item"><router-link to="/home/follow">关注</router-link></li>
+				<li class="nav-item"><router-link  to="/home/hot">热榜</router-link></li>
+				<li class="nav-item  search2"><input type="search" placeholder="search"></li>
+				<input type="button" value="提问" class="button2">
 			</ul>
 		</div>
 		<!-- 二级路由入口 -->
@@ -28,100 +36,169 @@
 		name: 'Nav',
 		data() {
 			return {
+				/*导航栏切换*/
+				fixed:true,
+				position:0,
+				/*导航栏切换结束*/
 				flag:true,
 				token:this.$store.state.token,
 				user:this.$store.state.user
 			};
 		},
+		/*导航栏切换*/
+		mounted() {
+			// 等到页面产生滚动，执行onscroll函数，监听滚动条位置变化
+			this.$nextTick(function () {
+				window.addEventListener('scroll',this.onScroll);
+			})
+		},
+		methods:{
+			onScroll() {
+				// 取得滚动的起点，也就是文档流的顶部
+				let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+				this.position = scrollTop;
+				console.log(this.position)
+				this.fixed = scrollTop <= 100;
+			}
+		},
+		/*导航栏切换结束*/
 		created() {}
 	};
 </script>
 
 <style lang="scss" scoped>
 	/*引入SDN样式图标*/
+	@import url('../assets/css/basic.css');
 
 	.gutter{
-		background: #eee;
-		position: relative;
-		margin: 10px auto;
-
+		min-width: 1024px;
+		margin: 0;
+		padding: 0;
 		.nav-bar{
-			padding-bottom:5px;
-			height: auto;
-			margin: 3px 0px;
-			height:40px;
-			text-align: center;
-			background: #fff;
-			box-shadow: 0 1px 3px rgba(26,26,26,.1);
-			width: 100%;
+			position: sticky;
+		}
+		.nav-bar,
+		.hide-nav-bar{
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			margin-bottom: 55px;
+			height: 55px;
+			z-index: 9999;
+
 			.nav-list{
-				position: relative;
-				padding-left: 250px;
-				height: 100%;
-				margin-top: 10px;
+				background-color: #fff;
+				margin: 0 auto;
+				width: 60%;
 				display: flex;
-				width: 100%;
-				.nav-item{
-					margin-top: 10px;
+				min-width: 1024px;
+				height:50px;
+				line-height: 50px;
+				.nav-item:nth-child(5){
+					width: 44%;
+					margin-left: 4%;
+					padding-right: 3%;
+
+				}
+				.nav-item:nth-child(1){
+					margin-left:-3%;
 					font-size: 15px;
+					width:10%;
+
+				}
+
+
+				.nav-item:nth-child(8){
+					padding-left:3%;
+				}
+				.nav-item{
+					font-size:1em;
 					color:#8590a6;
-					margin-left:40px;
-					list-style-type: none;
-					height: 35px;
+					margin-left:2%;
+					width:7%;
+					height: 55px;
+					overflow: hidden;
 					.zhihu{
-						font-size: 30px;
+						font-size:2em;
 						font-weight: normal;
-						margin: -10px -50px;
-						position: absolute;
-						text-decoration: none;
 						color:#0084ff;
 					}
 
 
 				}
-				.nav-item:active{
-					border-bottom: 3px solid blue;
-				}
-				.nav-item:visited{
-					border-bottom: 3px solid blue;
-				}
+
 
 			}
 		}
 	}
+	.nav-bar{
+		background: #fff;
+		box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2);
+
+	}
+	.nav-bar-enter-active,
+	.nav-bar-leave-active {
+		transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	.nav-bar-enter,
+	.nav-bar-leave-to {
+		transform: translateY(-52px);
+		opacity: 0;
+	}
+
+	.hide-nav-bar-enter-active,
+	.hide-nav-bar-leave-active {
+		transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+	.hide-nav-bar-enter,
+	.hide-nav-bar-leave-to {
+		transform: translateY(52px);
+		opacity: 0;
+	}
+
+
+
+	.hide-nav-bar{
+		background-color: #fff;
+		box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2);
+	}
 	input[type = search]{
 		border-radius: 4px ;
-		margin-left: 60px;
+		margin-left:8%;
 		box-sizing: border-box;
 		border: none;
 		line-height: 35px;
-		width: 300px;
+		width:100%;
 		background: #eee;
-		margin-top: -15px;
+
 	}
 	a{
-		text-decoration: none;
 		color: #999;
-	}
-	a:hover{
-	 color: #444 ;
-	}
-	router-link {
-		font-size: 20px;
-		color: #8590a6;
-		text-decoration: none;
+		display: inline-block;
+		height: 55px;
 
 	}
-	.router-link-active{
+
+	.nav-bar .router-link-active {
 		font-weight: 600;
-		color: black;
+		color: #444;
+		border-bottom: 3px solid #0084ff;
 	}
+	.hide-nav-bar .router-link-active{
+		color: #0084ff;
+	}
+
 
 	.icon{
-		margin: 10px 50px;
+		width: 20%;
+		margin: 10px 2%;
+		display: flex;
+		padding-left:5%;
 		i{
 			color: #8590a6;
-			margin-left:30px;
+			margin-left:35%;
 			font-size: 20px;
 		}
 	}
@@ -129,8 +206,23 @@
 		width: 60px;
 		height: 35px;
 		background: #0084ff;
-		border: none;
-		margin-left: 15px;
+		margin:8px 1%;
+		border-radius: 4px;
+		color: #fff;
+	}
+	.search2{
+		padding-left: 8%;
+		input[type=search]{
+			width:60%;
+			margin-left:48%;
+		}
+
+	}
+	.button2{
+		width: 60px;
+		height: 35px;
+		background: #0084ff;
+		margin:8px 8%;
 		border-radius: 4px;
 		color: #fff;
 	}

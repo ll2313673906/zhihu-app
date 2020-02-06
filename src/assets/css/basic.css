@@ -1,3 +1,35 @@
+*{
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+
+}
+
+body{
+    margin: 0;
+    padding: 0;
+
+}
+body div{
+    border-radius: 3px;
+}
+/*设置清除浮动*/
+.clear-box::after,.clear-box::before{
+    /*设置添加的子元素的内容为空*/
+    content: "";
+    /*设置添加的子元素为块级元素*/
+    display: block;
+    /*设置店家的子元素的高度为0*/
+    height: 0;
+    /*设置添加的子元素看不见*/
+    visibility: hidden;
+    /*给添加的子元素设置设置clear：both*/
+    clear: both;
+}
+
+ul>li{
+    float: left;
+}
 .main {
     background-color: #eee;
 
@@ -10,3 +42,48 @@ img{
     width: 100%;
     height: 100%;
 }
+
+/*设置统一行高样式*/
+.row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+[class*='col-']{
+   min-height:30px;
+}
+.col-avatar{
+    max-width: 50px;
+    max-height: 50px;
+
+}
+.col-avatar img{
+    border-radius: 50%;
+}
+
+/*设置按钮填充色*/
+.blue-icon{
+    fill: #0084ff;
+}
+
+button{
+    border-radius: 3px;
+    border: none;
+}
+/* 四行省略号 */
+.ellipsis-4 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:3;
+    overflow: hidden;
+}
+.sticky-bar{
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+    background-color: #fff;
+    background:#eee;
+
+}
+
+

@@ -66,8 +66,11 @@
         height: 100%;
     }
 .header{
+    margin-top: 65px;
     background: #fff;
     box-shadow: 0 1px 3px rgba(26,26,26,.1);
+    height: 60px;
+
     .header-info{
         display: flex;
         -webkit-box-align: center;
@@ -75,7 +78,7 @@
         align-items: center;
         margin: 0 auto;
         width: 1000px;
-        height: 100px;
+        height: 50px;
     }
     i{
         color:#0084ff;

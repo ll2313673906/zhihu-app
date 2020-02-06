@@ -6,17 +6,15 @@
                 <div class="header1">圆桌</div>
                 <div class="header2">举办圆桌</div>
             </div>
-            <tr class="row" >
-                <div class="content" v-for="(roundTable,index) in roundTables" :key="index">
-                    <td class="col-4" >
+            <div class="content">
+                <div class="card" v-for="(roundTable,index) in roundTables" :key="index">
+                    <div class="col-4 " >
                         <img :src="roundTable.banner" alt="">
                         <div class="top">{{ roundTable.name }}</div>
-                        <p class="meta">该圆桌被{{ roundTable.includeCount }}次浏览</p>
-
-                    </td>
-
+                    </div>
+                    <p class="meta">该圆桌被{{ roundTable.includeCount }}次浏览</p>
                 </div>
-            </tr>
+            </div>
 
         </div>
     </div>
@@ -41,12 +39,12 @@
 
 <style lang="scss" scoped>
 .header{
-    width: 800px;
+    width: 1100px;
     height: 40px;
     background:#fff;
     padding-left:20%;
     padding-top:15px;
-    margin-top: 0;
+    margin-top: 60px;
    display: flex;
     font-weight: bold;
     border-bottom: 1px solid #eee;
@@ -60,21 +58,28 @@
 }
 
 .container{
-    width: 67%;
+    width: 1100px;
     background: #fff;
     margin-top: 10px;
+    min-height: 500px;
 }
 
 
 .content{
-    display: flex;
-    min-height:100px;
     background: #fff;
-    width: 20%;
-     height: 260px;
     margin-top:10px;
     margin-left:40px;
-    float: left;
+
+    height: 500px;
+    width: 95% ;
+
+    .card{
+        width: 210px;
+        height: 210px;
+        margin-top: 30px;
+        float: left;
+        margin-left: 35px;
+    }
 }
 .bottom {
     margin-top: 0;
@@ -92,23 +97,22 @@
 .meta {
     color: #8590a6;
     font-size: 13px;
-    margin-top: -10px;
+    margin-top: 8px;
 }
 
 
 .col-4 {
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
     width: 100%;
-    height: 100%;
-}
-img{
-    width: 100%;
-    height: 80%;
-    border-radius: 5px;
+    height: 190px;
+    img{
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+    }
 }
 
-    .row{
-        width: 100%;
-    }
+
 
 
 </style>

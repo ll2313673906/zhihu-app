@@ -104,7 +104,7 @@
         margin-left: 40px;
     }
     .card{
-        width: 490px;
+        width: 450px;
         height: 364px;
         border-radius: 4px;
         -webkit-box-shadow: 0 1px 3px 0 rgba(26,26,26,.1);
@@ -187,6 +187,7 @@
             .card-body-row{
                 display: flex;
                 width: 100%;
+                margin-top: -3px;
                 .card-col-1{
                     flex: 0 0 100%;
                     display: block;

@@ -62,7 +62,7 @@
 <style lang="scss" scoped>
 #explore{
     width: 100%;
-    padding: 0;
+    padding: 80px;
     background: #eee;
    min-height:2500px;
 }
@@ -72,14 +72,11 @@ h2 {
 .container{
     width:75%;
     min-height: 600px;
-    margin: 10px auto;
-
-
-      .content{
+    .content{
           width:100%;
           margin-left: 10px;
           .card{
-              width: 490px;
+              width:45%;
               height: 364px;
               border-radius: 4px;
               -webkit-box-shadow: 0 1px 3px 0 rgba(26,26,26,.1);
@@ -89,6 +86,7 @@ h2 {
               margin:10px 15px;
               padding: 10px 10px 10px;
               float: left;
+
           }
 
       }

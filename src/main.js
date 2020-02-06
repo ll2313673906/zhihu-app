@@ -16,7 +16,7 @@ Vue.config.productionTip = false
 
 // 自定义过滤器
 Vue.filter("suolv",function (value) {
-  return value.slice(0,100) + "..."
+  return value.slice(0,120) + "..."
 })
 Vue.filter("suolv2",function (value) {
   return value.slice(0,60) + "..."

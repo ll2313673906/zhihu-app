@@ -28,12 +28,14 @@
                           {{  column.description }}
                        </div>
                        <div class="card-button">
+                           <router-link v-bind:to="'/column/' +index">
                            <input type="button" value="进入专栏">
+                           </router-link>
                        </div>
                    </div>
                </div>
                <router-link to="/more-columns">
-                   <div class="div-bottom" style="">
+                   <div class="div-bottom" style="margin-left: 380px">
                    查看更多专栏<i class=" fa fa-angle-right"></i>
                    </div>
                </router-link>
@@ -120,14 +122,14 @@
          text-align: center;
          padding: 28px 24px;
          box-sizing: border-box;
-         min-width: 235px;
+         width: 235px;
          height: 313px;
          border-radius: 4px;
          -webkit-box-shadow: 0 1px 3px 0 rgba(26,26,26,.1);
          box-shadow: 0 1px 3px 0
          rgba(26,26,26,.1);
          background-color: #fff;
-         margin-left: 20px;
+         margin-left: 10px;
          width: 23%;
          float: left;
          .card-header{

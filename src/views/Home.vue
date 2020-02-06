@@ -1,33 +1,16 @@
 <template>
     <div id="home">
-
         <div class="container">
-            <div class="banner">
-                <!--头部导航栏-->
-                <HomeHeader></HomeHeader>
-            </div>
-            <h3>全部专题</h3>
-            <tr class="row" v-for="(item,index) in specials" :key="index">
-                <div class="title">
-                    <h3>{{ item.title }}</h3>
-                </div>
-              <div class="content">
-                  <td class="col-4">
-                      <img :src="item.banner" alt=""></td>
-                  <td class="col-8">
-                      <p class="introduction">{{ item.introduction | suolv }}</p>
-                      <span v-for="(section,index) in item.sections" :key="index" class="section">{{ section.sectionTitle }}</span>
-                  </td>
+          <div class="left">
+              <div class="banner">
+                  <!--头部导航栏-->
+                  <HomeHeader></HomeHeader>
               </div>
-                <div class="bottom">
-                    <p class="meta">{{ item.updated }}更新，{{ item.viewCount }}次浏览</p>
-                </div>
-            </tr>
-
         </div>
-       <div class="right">
-           <HomeRight></HomeRight>
-       </div>
+          <div class="right">
+                <HomeRight></HomeRight>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -61,59 +44,36 @@
 <style lang="scss" scoped>
     #home{
         width: 100%;
-        background: #eee;
-        margin: 10px  auto;
         display: flex;
-
+        margin: 0 12%;
     }
 .banner{
     width: 100%;
 
 }
     .container{
-        width: 45%;
-        background:#fff;
-        color: black;
-        padding-left:30px;
-        margin-left: 15%;
+       min-width: 700px;
+        padding: 20px 1%;
+        margin:40px 4%;
+        z-index: 22;
+        display: flex;
+         height: 9900px;
+
+        .left{
+            min-width: 740px;
+            background:#fff;
+            padding-left: 1%;
+        }
 
     }
 
     h3{
        margin-top: 40px;
-        margin-left: -20;
     }
-    .row{
 
-        width: 100%;
-       .content{
-           display: flex;
-           min-height:100px;
-       }
-        .bottom{
-            margin-top: 0;
-            scroll-padding: 20px;
-            .meta{
-                color: #8590a6;
-            }
-        }
-    }
-    .col-4{
-        min-height:100px;
-        img{
-            width: 190px;
-            height: 105px;
-        }
-    }
-    .col-8{
-        margin-top: 0;
-        padding-left: 20px;
-        min-height:100px;
-    }
 .right{
-   position: absolute;
-    left:64%;
-    top:40px;
-    width: 300px;
+    min-width:280px;
+    margin: -25px 10px;
+
 }
 </style>

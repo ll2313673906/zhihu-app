@@ -9,10 +9,10 @@
  	@import url('assets/css/style.css');
 	#app {
         background: #eee;
+
         .main {
             background-color: #eee;
         }
-	}
-
+    }
 
 </style>
