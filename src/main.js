@@ -21,6 +21,10 @@ Vue.filter("suolv",function (value) {
 Vue.filter("suolv2",function (value) {
   return value.slice(0,60) + "..."
 })
+Vue.filter('suolv3',function (value) {
+  return value.slice(0,15) + "..."
+
+})
 
 new Vue({
   router,

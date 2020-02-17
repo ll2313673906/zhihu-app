@@ -59,6 +59,7 @@ img{
 }
 .col-avatar img{
     border-radius: 50%;
+    cursor: pointer;
 }
 
 /*设置按钮填充色*/
@@ -84,6 +85,10 @@ button{
     background-color: #fff;
     background:#eee;
 
+}
+input{
+    border: none;
+    outline: none;
 }
 
 

@@ -88,11 +88,10 @@
 			z-index: 9999;
 
 			.nav-list{
-				background-color: #fff;
+				background:#fff;
 				margin: 0 auto;
-				width: 60%;
 				display: flex;
-				min-width: 1024px;
+				width: 1034px;
 				height:50px;
 				line-height: 50px;
 				.nav-item:nth-child(5){
@@ -104,21 +103,22 @@
 				.nav-item:nth-child(1){
 					margin-left:-3%;
 					font-size: 15px;
-					width:10%;
-
+					width:15%;
 				}
-
+				.nav-item:nth-child(4){
+					width: 16%;
+				}
 
 				.nav-item:nth-child(8){
-					padding-left:3%;
+					padding-left:9%;
 				}
+
 				.nav-item{
 					font-size:1em;
 					color:#8590a6;
 					margin-left:2%;
-					width:7%;
+					width:9%;
 					height: 55px;
-					overflow: hidden;
 					.zhihu{
 						font-size:2em;
 						font-weight: normal;
@@ -166,13 +166,13 @@
 	}
 	input[type = search]{
 		border-radius: 4px ;
-		margin-left:8%;
+		margin-left:9%;
 		box-sizing: border-box;
 		border: none;
 		line-height: 35px;
 		width:100%;
-		background: #eee;
-
+		border: 1px ;
+		background: #f6f6f6;
 	}
 	a{
 		color: #999;
@@ -193,12 +193,12 @@
 
 	.icon{
 		width: 20%;
-		margin: 10px 2%;
+		margin: 10px 4%;
 		display: flex;
 		padding-left:5%;
 		i{
 			color: #8590a6;
-			margin-left:35%;
+			margin-left:59%;
 			font-size: 20px;
 		}
 	}

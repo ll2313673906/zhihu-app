@@ -17,75 +17,20 @@
                         </div>
                     </div>
                     <div class="content-body">
-                        <div class="content-div1">
-                            <a href="#" class="content-title">为什么会有人考不上一本</a>
-                            <p>如题，为什么会有人考不上一本</p>
+                        <div class="content-div1" v-for="(question,index) in questionsList" :key="index">
+                            <a href="#" class="content-title">{{ question.question.title }}</a>
+                            <p>{{ question.question.excerpt}}</p>
                             <div class="content-bottom">
                                 <a href="" type="button"><svg class="Zi Zi--Edit Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M4.076 16.966a4.19 4.19 0 0 1 1.05-1.76l8.568-8.569a.524.524 0 0 1 .741 0l2.928 2.927a.524.524 0 0 1 0 .74l-8.568 8.57c-.49.49-1.096.852-1.761 1.051l-3.528 1.058a.394.394 0 0 1-.49-.488l1.06-3.53zM20.558 4.83c.59.59.59 1.546 0 2.136l-1.693 1.692a.503.503 0 0 1-.712 0l-2.812-2.812a.504.504 0 0 1 0-.712l1.693-1.693a1.51 1.51 0 0 1 2.135 0l1.389 1.389z"></path></svg>写回答</a>
                                 <button class="bottom-btn"><svg class="Zi Zi--Plus" fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M13.491 10.488s-.012-5.387 0-5.998c-.037-1.987-3.035-1.987-2.997 0-.038 1.912 0 5.998 0 5.998H4.499c-1.999.01-1.999 3.009 0 3.009s5.995-.01 5.995-.01v5.999c0 2.019 3.006 2.019 2.997 0-.01-2.019 0-5.998 0-5.998s3.996.009 6.004.009c2.008 0 2.008-3-.01-3.009h-5.994z" fill-rule="evenodd"></path></svg>关注问题</button>
                                 <button class="bottom-btn"><svg class="Zi Zi--Later" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M12.004 4.15a7.85 7.85 0 1 1-5.772 13.17.85.85 0 0 1 1.25-1.153 6.15 6.15 0 1 0-1.559-5.087l1.208.343a.542.542 0 0 1 .112.996l-2.597 1.42a.542.542 0 0 1-.732-.21l-1.44-2.561a.542.542 0 0 1 .62-.787l1.182.334a7.852 7.852 0 0 1 7.728-6.465zm-.178 3.792c.385 0 .7.31.7.69l-.003 3.495 2.564 1.693c.315.207.425.671.185.977-.24.305-.69.33-.99.126 0 0-2.53-1.663-2.844-1.9-.315-.236-.315-.551-.315-.551l.003-3.84c0-.38.315-.69.7-.69z" fill-rule="evenodd"></path></svg>稍后答</button>
                                 <div class="last">
-                                  <div class=" bottom-info">85个回答 56856个浏览</div>
+                                  <div class=" bottom-info">{{ question.question.answer_count }}个回答 {{ question.question.visit_count }}个浏览</div>
                                 </div>
                             </div>
 
                         </div>
-                        <div class="content-div1">
-                            <a href="#" class="content-title">为什么会有人考不上一本</a>
-                            <div class="content-bottom">
-                                <a href="" type="button"><svg class="Zi Zi--Edit Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M4.076 16.966a4.19 4.19 0 0 1 1.05-1.76l8.568-8.569a.524.524 0 0 1 .741 0l2.928 2.927a.524.524 0 0 1 0 .74l-8.568 8.57c-.49.49-1.096.852-1.761 1.051l-3.528 1.058a.394.394 0 0 1-.49-.488l1.06-3.53zM20.558 4.83c.59.59.59 1.546 0 2.136l-1.693 1.692a.503.503 0 0 1-.712 0l-2.812-2.812a.504.504 0 0 1 0-.712l1.693-1.693a1.51 1.51 0 0 1 2.135 0l1.389 1.389z"></path></svg>写回答</a>
-                                <button class="bottom-btn"><svg class="Zi Zi--Plus" fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M13.491 10.488s-.012-5.387 0-5.998c-.037-1.987-3.035-1.987-2.997 0-.038 1.912 0 5.998 0 5.998H4.499c-1.999.01-1.999 3.009 0 3.009s5.995-.01 5.995-.01v5.999c0 2.019 3.006 2.019 2.997 0-.01-2.019 0-5.998 0-5.998s3.996.009 6.004.009c2.008 0 2.008-3-.01-3.009h-5.994z" fill-rule="evenodd"></path></svg>关注问题</button>
-                                <button class="bottom-btn"><svg class="Zi Zi--Later" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M12.004 4.15a7.85 7.85 0 1 1-5.772 13.17.85.85 0 0 1 1.25-1.153 6.15 6.15 0 1 0-1.559-5.087l1.208.343a.542.542 0 0 1 .112.996l-2.597 1.42a.542.542 0 0 1-.732-.21l-1.44-2.561a.542.542 0 0 1 .62-.787l1.182.334a7.852 7.852 0 0 1 7.728-6.465zm-.178 3.792c.385 0 .7.31.7.69l-.003 3.495 2.564 1.693c.315.207.425.671.185.977-.24.305-.69.33-.99.126 0 0-2.53-1.663-2.844-1.9-.315-.236-.315-.551-.315-.551l.003-3.84c0-.38.315-.69.7-.69z" fill-rule="evenodd"></path></svg>稍后答</button>
-                                <div class="last">
-                                    <div class=" bottom-info">85个回答 56856个浏览</div>
-                                </div>
-                            </div>
 
-                        </div>
-                        <div class="content-div1">
-                            <a href="#" class="content-title">为什么会有人考不上一本</a>
-                            <div class="content-bottom">
-                                <a href="" type="button"><svg class="Zi Zi--Edit Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M4.076 16.966a4.19 4.19 0 0 1 1.05-1.76l8.568-8.569a.524.524 0 0 1 .741 0l2.928 2.927a.524.524 0 0 1 0 .74l-8.568 8.57c-.49.49-1.096.852-1.761 1.051l-3.528 1.058a.394.394 0 0 1-.49-.488l1.06-3.53zM20.558 4.83c.59.59.59 1.546 0 2.136l-1.693 1.692a.503.503 0 0 1-.712 0l-2.812-2.812a.504.504 0 0 1 0-.712l1.693-1.693a1.51 1.51 0 0 1 2.135 0l1.389 1.389z"></path></svg>写回答</a>
-                                <button class="bottom-btn"><svg class="Zi Zi--Plus" fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M13.491 10.488s-.012-5.387 0-5.998c-.037-1.987-3.035-1.987-2.997 0-.038 1.912 0 5.998 0 5.998H4.499c-1.999.01-1.999 3.009 0 3.009s5.995-.01 5.995-.01v5.999c0 2.019 3.006 2.019 2.997 0-.01-2.019 0-5.998 0-5.998s3.996.009 6.004.009c2.008 0 2.008-3-.01-3.009h-5.994z" fill-rule="evenodd"></path></svg>关注问题</button>
-                                <button class="bottom-btn"><svg class="Zi Zi--Later" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M12.004 4.15a7.85 7.85 0 1 1-5.772 13.17.85.85 0 0 1 1.25-1.153 6.15 6.15 0 1 0-1.559-5.087l1.208.343a.542.542 0 0 1 .112.996l-2.597 1.42a.542.542 0 0 1-.732-.21l-1.44-2.561a.542.542 0 0 1 .62-.787l1.182.334a7.852 7.852 0 0 1 7.728-6.465zm-.178 3.792c.385 0 .7.31.7.69l-.003 3.495 2.564 1.693c.315.207.425.671.185.977-.24.305-.69.33-.99.126 0 0-2.53-1.663-2.844-1.9-.315-.236-.315-.551-.315-.551l.003-3.84c0-.38.315-.69.7-.69z" fill-rule="evenodd"></path></svg>稍后答</button>
-                                <div class="last">
-                                    <div class=" bottom-info">85个回答 56856个浏览</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content-div1">
-                            <a href="#" class="content-title">为什么会有人考不上一本</a>
-                            <div class="content-bottom">
-                                <a href="" type="button"><svg class="Zi Zi--Edit Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M4.076 16.966a4.19 4.19 0 0 1 1.05-1.76l8.568-8.569a.524.524 0 0 1 .741 0l2.928 2.927a.524.524 0 0 1 0 .74l-8.568 8.57c-.49.49-1.096.852-1.761 1.051l-3.528 1.058a.394.394 0 0 1-.49-.488l1.06-3.53zM20.558 4.83c.59.59.59 1.546 0 2.136l-1.693 1.692a.503.503 0 0 1-.712 0l-2.812-2.812a.504.504 0 0 1 0-.712l1.693-1.693a1.51 1.51 0 0 1 2.135 0l1.389 1.389z"></path></svg>写回答</a>
-                                <button class="bottom-btn"><svg class="Zi Zi--Plus" fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M13.491 10.488s-.012-5.387 0-5.998c-.037-1.987-3.035-1.987-2.997 0-.038 1.912 0 5.998 0 5.998H4.499c-1.999.01-1.999 3.009 0 3.009s5.995-.01 5.995-.01v5.999c0 2.019 3.006 2.019 2.997 0-.01-2.019 0-5.998 0-5.998s3.996.009 6.004.009c2.008 0 2.008-3-.01-3.009h-5.994z" fill-rule="evenodd"></path></svg>关注问题</button>
-                                <button class="bottom-btn"><svg class="Zi Zi--Later" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M12.004 4.15a7.85 7.85 0 1 1-5.772 13.17.85.85 0 0 1 1.25-1.153 6.15 6.15 0 1 0-1.559-5.087l1.208.343a.542.542 0 0 1 .112.996l-2.597 1.42a.542.542 0 0 1-.732-.21l-1.44-2.561a.542.542 0 0 1 .62-.787l1.182.334a7.852 7.852 0 0 1 7.728-6.465zm-.178 3.792c.385 0 .7.31.7.69l-.003 3.495 2.564 1.693c.315.207.425.671.185.977-.24.305-.69.33-.99.126 0 0-2.53-1.663-2.844-1.9-.315-.236-.315-.551-.315-.551l.003-3.84c0-.38.315-.69.7-.69z" fill-rule="evenodd"></path></svg>稍后答</button>
-                                <div class="last">
-                                    <div class=" bottom-info">85个回答 56856个浏览</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content-div1">
-                            <a href="#" class="content-title">为什么会有人考不上一本</a>
-                            <div class="content-bottom">
-                                <a href="" type="button"><svg class="Zi Zi--Edit Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M4.076 16.966a4.19 4.19 0 0 1 1.05-1.76l8.568-8.569a.524.524 0 0 1 .741 0l2.928 2.927a.524.524 0 0 1 0 .74l-8.568 8.57c-.49.49-1.096.852-1.761 1.051l-3.528 1.058a.394.394 0 0 1-.49-.488l1.06-3.53zM20.558 4.83c.59.59.59 1.546 0 2.136l-1.693 1.692a.503.503 0 0 1-.712 0l-2.812-2.812a.504.504 0 0 1 0-.712l1.693-1.693a1.51 1.51 0 0 1 2.135 0l1.389 1.389z"></path></svg>写回答</a>
-                                <button class="bottom-btn"><svg class="Zi Zi--Plus" fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M13.491 10.488s-.012-5.387 0-5.998c-.037-1.987-3.035-1.987-2.997 0-.038 1.912 0 5.998 0 5.998H4.499c-1.999.01-1.999 3.009 0 3.009s5.995-.01 5.995-.01v5.999c0 2.019 3.006 2.019 2.997 0-.01-2.019 0-5.998 0-5.998s3.996.009 6.004.009c2.008 0 2.008-3-.01-3.009h-5.994z" fill-rule="evenodd"></path></svg>关注问题</button>
-                                <button class="bottom-btn"><svg class="Zi Zi--Later" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M12.004 4.15a7.85 7.85 0 1 1-5.772 13.17.85.85 0 0 1 1.25-1.153 6.15 6.15 0 1 0-1.559-5.087l1.208.343a.542.542 0 0 1 .112.996l-2.597 1.42a.542.542 0 0 1-.732-.21l-1.44-2.561a.542.542 0 0 1 .62-.787l1.182.334a7.852 7.852 0 0 1 7.728-6.465zm-.178 3.792c.385 0 .7.31.7.69l-.003 3.495 2.564 1.693c.315.207.425.671.185.977-.24.305-.69.33-.99.126 0 0-2.53-1.663-2.844-1.9-.315-.236-.315-.551-.315-.551l.003-3.84c0-.38.315-.69.7-.69z" fill-rule="evenodd"></path></svg>稍后答</button>
-                                <div class="last">
-                                    <div class=" bottom-info">85个回答 56856个浏览</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content-div1">
-                            <a href="#" class="content-title">为什么会有人考不上一本</a>
-                            <div class="content-bottom">
-                                <a href="" type="button"><svg class="Zi Zi--Edit Button-zi" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M4.076 16.966a4.19 4.19 0 0 1 1.05-1.76l8.568-8.569a.524.524 0 0 1 .741 0l2.928 2.927a.524.524 0 0 1 0 .74l-8.568 8.57c-.49.49-1.096.852-1.761 1.051l-3.528 1.058a.394.394 0 0 1-.49-.488l1.06-3.53zM20.558 4.83c.59.59.59 1.546 0 2.136l-1.693 1.692a.503.503 0 0 1-.712 0l-2.812-2.812a.504.504 0 0 1 0-.712l1.693-1.693a1.51 1.51 0 0 1 2.135 0l1.389 1.389z"></path></svg>写回答</a>
-                                <button class="bottom-btn"><svg class="Zi Zi--Plus" fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M13.491 10.488s-.012-5.387 0-5.998c-.037-1.987-3.035-1.987-2.997 0-.038 1.912 0 5.998 0 5.998H4.499c-1.999.01-1.999 3.009 0 3.009s5.995-.01 5.995-.01v5.999c0 2.019 3.006 2.019 2.997 0-.01-2.019 0-5.998 0-5.998s3.996.009 6.004.009c2.008 0 2.008-3-.01-3.009h-5.994z" fill-rule="evenodd"></path></svg>关注问题</button>
-                                <button class="bottom-btn"><svg class="Zi Zi--Later" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M12.004 4.15a7.85 7.85 0 1 1-5.772 13.17.85.85 0 0 1 1.25-1.153 6.15 6.15 0 1 0-1.559-5.087l1.208.343a.542.542 0 0 1 .112.996l-2.597 1.42a.542.542 0 0 1-.732-.21l-1.44-2.561a.542.542 0 0 1 .62-.787l1.182.334a7.852 7.852 0 0 1 7.728-6.465zm-.178 3.792c.385 0 .7.31.7.69l-.003 3.495 2.564 1.693c.315.207.425.671.185.977-.24.305-.69.33-.99.126 0 0-2.53-1.663-2.844-1.9-.315-.236-.315-.551-.315-.551l.003-3.84c0-.38.315-.69.7-.69z" fill-rule="evenodd"></path></svg>稍后答</button>
-                                <div class="last">
-                                    <div class=" bottom-info">85个回答 56856个浏览</div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -104,7 +49,30 @@
         name: "QuestionWaiting",
         components:{
             HomeRight
-        }
+        },
+        data() {
+            return {
+                questionsList: [],
+
+            }
+        },
+        mounted() {
+            window.addEventListener('scroll', this.scrollToTop);
+        },
+        created() {
+            this.axios.get('/api/candidate-questions').then(res => {
+                this.questionsList = res.data.data.data;
+                //定义一个正则规则，用来处理富文本中的图片
+                const regex = new RegExp('<img', 'gi');
+                for (var i = 0; i < this.questionsList.length; i++) {
+                    //给每篇文章添加一个标记，默认为false，表示未展开全文
+                    this.flags.splice(i, 0, false);
+                    //将富文本中的图片处理大小
+                    this.questionsList[i].target.content = this.questionsList[i].target.content.replace(regex, `<img style="max-width: 100%; height: auto"`);
+                }
+            });
+        },
+
     }
 </script>
 
@@ -113,7 +81,8 @@
     margin: 0 ;
     padding: 0;
     background:#eee;
-    height: 1200px;
+    min-height: 1200px;
+
     .container{
         margin: 60px auto;
         min-width: 1100px;
@@ -151,8 +120,13 @@
                             border-radius: 16px;
                             border: none;
                             margin:20px 10px;
+                           position: relative;
+
                             svg{
                                 color: #8590a6;
+                                position: absolute;
+                                margin:1px -19px;
+
                             }
                         }
                         .header-btn:active{
